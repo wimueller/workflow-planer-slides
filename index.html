@@ -115,6 +115,9 @@
 							<li class="fragment">nachträgliche Stil-Anpassungen oder Positionierung schwierig</li>
 						</ul>
 					</ul>
+					<aside class="notes">
+						-Wenn man die Forms als HTML abspeichert => schwierig in React einzubinden (Design und Action handling mit Data Bindings in JavaScript)
+					</aside>
 				</section>
 				<section>
 					<h5>Alternativen:</h5>
@@ -139,6 +142,10 @@
 						<li class="fragment">JSONForms mit React-Renderer kompatibel</li>
 						<li class="fragment">Renderer lässt sich modifizieren und erweitern</li>
 					</ul>
+					<aside class="notes">
+						- Da die selbe Repräsentation im Editor und Formular genutzt wird, sind keine weiteren Konvertierungsschritte erforderlich.
+						- Es lassen sich mit Custom Renderer auch Sterne oder so darstellen, die man dann wie ein Rating benutzen kann
+					</aside>
 				</section>
 				<section>
 					<h5><strong><u>Vorteil</u>: Ermöglicht selbe Repräsentation im Editor und im fertigen Formular</strong></h5>
@@ -197,6 +204,9 @@
 							]
 						  }
 					</code></pre>
+					<aside class="notes">
+						-UI-Schema beschreibt die Formatierung
+					</aside>
 				</section>
 				<section>
 					<h5>Daten-Schema:</h5>
@@ -253,6 +263,10 @@
 							<li class="fragment"><strong>Probleme mit Hooks und zu häufigem rendern</strong></li>
 						</ul>
 					</ul>
+					<aside class="notes">
+						- React DND ist eine weitverbreitete Bibliothek für Drag and Drop
+						- Zustandsänderungen sind highlighting beim draggen oder andere Veränderungen der Oberfläche
+					</aside>
 				</section>
 				<section>
 					<iframe class="r-stretch" data-src="https://react-dnd.github.io/react-dnd/examples/sortable/simple" data-preload></iframe>
@@ -290,6 +304,9 @@
 						</ul>
 						<li class="fragment">Technische Umsetzung mit <strong>ReactFlow</strong></li>
 					</ul>
+					<aside class="notes">
+						- Jeder Baustein stellt einen spezielle Funktionalität dar
+					</aside>
 				</section>
 				<section>
 					<h5>Transformation von GUI-Workflow zu Backend</h5>
@@ -373,6 +390,9 @@
 						<li class="fragment"><strong>Lösung:</strong> Frontend-API verknüpft Formular/Workflow <u><strong>ID</strong></u> mit Nutzer <u><strong>ID</strong></u></li>
 						<li class="fragment">Mit wenig Aufwand andere Authentifizierungsprovider einbinden</li>
 					</ul>
+					<aside class="notes">
+						- Einziger Speicherort, da Doppelspeicheung vermieden werden soll
+					</aside>
 				</section>
 				<section>
 					<h5>Authentifizierung</h5>
@@ -396,6 +416,11 @@
 						<li class="fragment">Workflows mit Ausfüll-Erinnerungen und Datenfiltern gut umsetzbar</li>
 						<li class="fragment">Senden von eventbasierten Benachrichtigungen (zu) komplex für Workflow-Ersteller und für Programmierer</li>
 					</ul>
+					<aside class="notes">
+						Für eventbasierte Benachrichtigungen oder andere Events wir dem Workflow-Ersteller Programmiererfahrung abverlangt.
+						Und eine Wissen über die Datenstrukturen des Workflow-Generators
+						Ein kompletter Workflow kann bis jetzt nicht von dem System automatisiert werden.
+					</aside>
 				</section>
 				<section>
 					<h3><strong>Workflow-Planer <u>unterstützt</u> bei administrativen Aufgaben</strong></h3>
