@@ -1,40 +1,425 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>Grafischer Workflow-Planer mit integriertem Formular-Editor</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="titlefolie">
+				<h3>Grafischer Workflow-Planer mit integriertem Formular-Editor</h3>
+				<p>Vorstellung der Masterarbeit von Wilko Müller am 01.Juni 2022</p>
+			</section>
+			<section id="motivation">
+				<h3>Motivation</h3>
+				<section>
+					<ul>
+						<li>Pandemie führt zur Zunahme bei der Digitalisierung von Arbeitsabläufen</li>
+						<li>Erstellung von Webanwendungen erfordert:</li>
+						<ul>
+							<li class="fragment">Programmierkenntnisse</li>
+							<li class="fragment">Wissen über Tools und Frameworks</li>
+							<li class="fragment">Sachverstand über das Anwendungsszenario</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<strong>Webanwendungen können nur von Programmier*innen angefertigt werden!</strong>
+				</section>
+				<section>
+					<ul>
+						<li>Entwicklungsprozess soweit vereinfachen, dass</li>
+						<ul>
+							<li class="fragment">kaum Programmierkenntnisse erforderlich sind.</li>
+							<li class="fragment">nur die Bedienung eines universellen Tools nötig ist.</li>
+						</ul>
+						<li class="fragment">Person mit Sachverstand über das Anwendungsszenario übernimmt auch die Rolle des Programmierers</li>
+					</ul>
+				</section>
+				<section>
+					<strong>Dies soll der Workflow-Planer mit integriertem Formular-Editor ermöglichen</strong>
+				</section>
+			</section>
+			<section id="lösungsansatz">
+				<h3>Lösungsansatz</h3>
+				<section>
+					<ul>
+						<li>Interaktion erfolgt durch <strong>Formulare</strong> und <strong>E-Mails</strong></li>
+						<li>Zwei Nutzerklassen: <strong>Workflow-Ersteller*innen</strong> und <strong>Formularausfüllende</strong></li>
+						
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li>Für Workflow-Ersteller*innen:</li>
+						<ul>
+							<li class="fragment"><strong>Formular-Editor</strong> mit Drag and Drop Funktion</li>
+							<li class="fragment">grafischen <strong>Workflow-Editor</strong> mit Bausteinen und Datenflussverbindungen</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li>Für Formularausfüllende:</li>
+						<ul>
+							<li class="fragment"><strong>Web-Formulare</strong></li>
+							<li class="fragment">Kontaktaufnahme über <strong>E-Mail</strong></li>
+						</ul>
+					</ul>
+				</section>
+			</section>
+			<section id="verwandteArbeiten">
+				<h3>Verwandte Arbeiten</h3>
+				<section>
+					<a target="_blank" rel="noopener noreferrer" href="https://github.com/Kinto/formbuilder">
+						<h4>Kinto Formbuilder</h4>
+					</a>
+					<ul>
+						<li>Formulare lassen sich erstellen und hosten</li>
+						<li>ausgefüllte Formulare können abgerufen werden</li>
+						<li><strong>keine automatisierten Funktionen auf den Daten möglich</strong></li>
+						<li><strong>seit fünf Jahren keine Updates mehr</strong></li>
+					</ul>
+				</section>
+				<section>
+					<a target="_blank" rel="noopener noreferrer" href="https://formium.io/">
+						<h4>Formium</h4>
+					</a>
+					<ul>
+						<li>Formular-Editor basierend auf <a target="_blank" rel="noopener noreferrer" href="https://formik.org/">FORMIK</a></li>
+						<li>eine Vielzahl an Möglichkeiten die Daten weiterzuverarbeiten</li>
+						<li>bietet die zu unserem Anwendungsfall passende Funktionalität</li>
+						<li><strong>kommerzielles Produkt und kein Open-Source</strong></li>
+					</ul>
+				</section>
+			</section>
+			<section id="repräsentationFormulare">
+				<h3>Repräsentation der Formulare</h3>
+				<section>
+					<ul>
+						<li>Abspeicherung als HTML/JSX realisierbar, allerdings:</li>
+						<ul>
+							<li class="fragment">keine Validierung der Eingaben möglich</li>
+							<li class="fragment">nachträgliche Stil-Anpassungen oder Positionierung schwierig</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<h5>Alternativen:</h5>
+						<ul>
+							<li class="fragment">FORMIK:</li>
+							<ul>
+								<li class="fragment">Weniger Code</li>
+								<li class="fragment">Nutzereingaben sind leicht abrufbar</li>
+								<li class="fragment">immer noch ziemlich nah an HTML/JSX</li>
+							</ul>
+							<li class="fragment"><strong>JSONForms</strong></li>
+						</ul>
+				</section>
+				<section>
+					<h4>JSONForms</h4>
+					<ul>
+						<li>JSONForms Framework trennt zwischen:</li>
+						<ul>
+							<li class="fragment">User-Interface Beschreibung in JSON</li>
+							<li class="fragment">Datentypen der Felder in JSON-Schema</li>
+						</ul>
+						<li class="fragment">JSONForms mit React-Renderer kompatibel</li>
+						<li class="fragment">Renderer lässt sich modifizieren und erweitern</li>
+					</ul>
+				</section>
+				<section>
+					<h5><strong><u>Vorteil</u>: Ermöglicht selbe Repräsentation im Editor und im fertigen Formular</strong></h5>
+				</section>
+				<section>
+					<h4>Live-Demo Formular-Editor</h4>
+				</section>
+				<section>
+					<iframe class="r-stretch" data-src="http://localhost:1234/formeditor" data-preload></iframe>
+				</section>
+				<section>
+					<h5>User-Interface Beschreibung:</h5>
+					<pre><code data-trim>
+						{
+							"type": "VerticalLayout",
+							"elements": [
+							  {
+								"type": "Label",
+								"text": "Formular zur Abfrage einiger Daten"
+							  },
+							  {
+								"type": "HorizontalLayout",
+								"elements": [
+								  {
+									"type": "Control",
+									"scope": "#/properties/Text",
+									"label": "Vorname"
+								  },
+								  {
+									"type": "Control",
+									"scope": "#/properties/Text",
+									"label": "Nachname"
+								  }
+								]
+							  },
+							  {
+								"type": "HorizontalLayout",
+								"elements": [
+								  {
+									"type": "Control",
+									"scope": "#/properties/Text",
+									"label": "E-Mail"
+								  },
+								  {
+									"type": "Control",
+									"scope": "#/properties/Checkbox",
+									"label": "Ja, ich möchte E-Mails diesbezüglich erhalten"
+								  }
+								]
+							  },
+							  {
+								"type": "Control",
+								"scope": "#/properties/Datumseingabe",
+								"label": "Abholtermin"
+							  }
+							]
+						  }
+					</code></pre>
+				</section>
+				<section>
+					<h5>Daten-Schema:</h5>
+					<pre><code data-trim>
+						{
+							"type": "object",
+							"title": "Formularbausteine",
+							"properties": {
+							  "Datumseingabe": {
+								"type": "string",
+								"format": "date"
+							  },
+							  "Uhrzeit": {
+								"type": "string",
+								"format": "time"
+							  },
+							  "Datum & Uhrzeit": {
+								"type": "string",
+								"format": "date-time",
+								"schreibmodus": "readonly"
+							  },
+							  "Nummer": {
+								"type": "number"
+							  },
+							  "Checkbox": {
+								"type": "boolean"
+							  },
+							  "Text": {
+								"type": "string",
+								"minLength": 2
+							  }
+							}
+						  }
+					</code></pre>
+				</section>
+				<section>
+					<img data-src="grafiken/FormularEditor.png" width="595" height="464">
+					<p>Formular aus Sicht der erstellenden Person</p>
+				</section>
+				<section>
+					<img data-src="grafiken/FormularEditorPreview.png">
+					<p>Formular aus Sicht der ausfüllenden Person</p>
+				</section>
+			</section>
+			<section id="dragDropBrowser">
+				<section>
+						<h3>Herausforderung:</h3>
+					<h4>Drag and Drop im Browser</h4>
+						<ul>
+						<li class="fragment">Ersten Formular-Editor Prototype mit <strong>ReactDnD</strong> umgesetzt</li>
+						<ul>
+							<li class="fragment">Vereinfacht Zustandsänderungen bei Events</li>
+							<li class="fragment">Monitor-Connect Logik gewöhnungsbedürftig</li>
+							<li class="fragment"><strong>Probleme mit Hooks und zu häufigem rendern</strong></li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<iframe class="r-stretch" data-src="https://react-dnd.github.io/react-dnd/examples/sortable/simple" data-preload></iframe>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">rendert bei jeder kleinsten Mausbewegung neu</li>
+						<li class="fragment">sehr hohe CPU-Last</li>
+						<li class="fragment"><strong>Deshalb HTML-5 Drag and Drop in React nutzen</strong></li>
+					</ul>
+				</section>
+			</section>
+			<section id="darstellungWorkflows">
+				<h3>Darstellung der Workflows</h3>
+				<section>
+					<img data-src="grafiken/BeispielWorkflow.png" width="456" height="511">
+				</section>
+				<section>
+					<h3>Live-Demo Workflow-Editor</h3>
+				</section>
+				<section>
+					<iframe class="r-stretch" data-src="http://localhost:1234/workfloweditor" data-preload></iframe>
+				</section>
+				<section>
+					<ul>
+						<li>Drag-and-Drop-Bausteine mit:</li>
+						<ul>
+							<li class="fragment">Verbindungspunkten (Input/Output)</li>
+							<li class="fragment">Baustein-spezifischen Einstellungsmöglichkeiten</li>
+						</ul>
+						<li class="fragment">Verbindungslinien, die:</li>
+						<ul>
+							<li class="fragment">zwischen Bausteinen gezogen werden können</li>
+							<li class="fragment"> einen Datenfluss darstellen</li>
+						</ul>
+						<li class="fragment">Technische Umsetzung mit <strong>ReactFlow</strong></li>
+					</ul>
+				</section>
+				<section>
+					<h5>Transformation von GUI-Workflow zu Backend</h5>
+					<ul>
+						<li>Konvertierung client-seitig</li>
+						<ol>
+							<li>Grundstruktur für alle Bausteine erstellen</li>
+							<li>Baustein-spezifische Eisntellungen zuordnen und einfügen</li>
+							<li>Grundstruktur für die Verbindungslinien erstellen und Quell-Baustein eintragen</li>
+							<li>Im Ziel-Baustein der Verbindungslinien die restlichen Attribute setzen</li>
+
+						</ol>
+					</ul>
+				</section>
+				<section>
+					<h5>Generierter Workflow in JSON</h5>
+					<pre>
+						<code data-trim>
+							{
+								"components": {
+									"inputdndnode_0": {
+										"type": "JFormOutput",
+										"formId": "44be8c20-dc68-48e0-9347-598faa81298e"
+									},
+									"dataManipulationdndnode_0": {
+										"type": "UDF",
+										"code": "def run(x):\\n    return x['string']",
+										"outputTypeHint": "String",
+										"stream": "inputdndnode_0"
+									},
+									"dataManipulationdndnode_1": {
+										"type": "UDF",
+										"code": "def run(x):\\n    return x['date']",
+										"outputTypeHint": "Date",
+										"stream": "inputdndnode_0"
+									},
+									"filterdndnode_2": {
+										"type": "UDF",
+										"filterFields": "date"
+									},
+									"outputdndnode_3": {
+										"type": "Void",
+										"stream": "reactflow__edge-inputdndnode_0-dataManipulationdndnode_0"
+									},
+									"reactflow__edge-inputdndnode_0-dataManipulationdndnode_1": {
+										"type": "LeftJoin",
+										"stream1": "inputdndnode_0",
+										"stream2": "dataManipulationdndnode_1"
+									},
+									"reactflow__edge-inputdndnode_0-dataManipulationdndnode_0": {
+										"type": "LeftJoin",
+										"stream1": "inputdndnode_0",
+										"stream2": "dataManipulationdndnode_0"
+									},
+									"reactflow__edge-dataManipulationdndnode_0-filterdndnode_2": {
+										"type": "LeftJoin",
+										"stream1": "dataManipulationdndnode_0",
+										"stream2": "filterdndnode_2"
+									},
+									"reactflow__edge-dataManipulationdndnode_1-filterdndnode_2": {
+										"type": "LeftJoin",
+										"stream1": "dataManipulationdndnode_1",
+										"stream2": "filterdndnode_2"
+									}
+								}
+							}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h5>Das erstellte JSON wird an das Backend gesendet und ausgeführt.</h5>
+				</section>
+			</section>
+			<section id="architektur">
+				<h3>Architektur</h3>
+				<section>
+					<h5>Abspeicherung der Formulare & Workflows</h5>
+					<ul>
+						<li class="fragment"><strong>Problem:</strong> Verknüpfung zwischen Nutzer*innen & Formularen</li>
+						<li class="fragment">Backend soll einziger Speicherort sein</li>
+						<li class="fragment"><strong>Lösung:</strong> Frontend-API verknüpft Formular/Workflow <u><strong>ID</strong></u> mit Nutzer <u><strong>ID</strong></u></li>
+						<li class="fragment">Mit wenig Aufwand andere Authentifizierungsprovider einbinden</li>
+					</ul>
+				</section>
+				<section>
+					<h5>Authentifizierung</h5>
+					<ul>
+						<li class="fragment">Authentifizierung über Stud.IP</li>
+							<ul>
+								<li class="fragment">zusätzlicher JSON-Webtoken(JWT)</li>
+							</ul>
+						<li class="fragment">JWT und Stud.IP-User im Session-Storage des Browsers</li>
+					</ul>
+				</section>
+				<section>
+					<img data-src="grafiken/DatenflussAuthentifizierungArchitektur.png">
+				</section>
+			</section>
+			<section id="fazit">
+				<h3>Fazit</h3>
+				<section>
+					<ul>
+						<li class="fragment">Abfrage von Daten durch Formulare zugänglicher gemacht</li>
+						<li class="fragment">Workflows mit Ausfüll-Erinnerungen und Datenfiltern gut umsetzbar</li>
+						<li class="fragment">Senden von eventbasierten Benachrichtigungen (zu) komplex für Workflow-Ersteller und für Programmierer</li>
+					</ul>
+				</section>
+				<section>
+					<h3><strong>Workflow-Planer <u>unterstützt</u> bei administrativen Aufgaben</strong></h3>
+				</section>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom]
+		});
+	</script>
+</body>
+
 </html>
