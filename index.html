@@ -27,38 +27,61 @@
 				<section>
 					<ul>
 						<li>Pandemie führt zur Zunahme bei der Digitalisierung von Arbeitsabläufen</li>
-						<li>Erstellung von Webanwendungen erfordert:</li>
+						<li>Webanwendungen können Arbeitsabläufe unterstützen</li>
+						<li>Erstellung solcher Webanwendungen erfordert:</li>
 						<ul>
 							<li class="fragment">Programmierkenntnisse</li>
 							<li class="fragment">Wissen über Tools und Frameworks</li>
 							<li class="fragment">Sachverstand über das Anwendungsszenario</li>
 						</ul>
 					</ul>
+					<aside class="notes">
+						- Webanwendungen sind mehr als einfache Webseite z.B.: Testatverwaltungstool, Google Forms, 
+						- mit Interaktionmöglichkeiten
+					</aside>
 				</section>
 				<section>
-					<strong>Webanwendungen können nur von Programmier*innen angefertigt werden!</strong>
+					<strong>Webanwendungen können nur von Programmierer:innen angefertigt werden!</strong>
 				</section>
+			</section>
+			<section id="anforderungen">
+				<h3>Anforderungen</h3>
 				<section>
 					<ul>
 						<li>Entwicklungsprozess soweit vereinfachen, dass</li>
 						<ul>
 							<li class="fragment">kaum Programmierkenntnisse erforderlich sind.</li>
-							<li class="fragment">nur die Bedienung eines universellen Tools nötig ist.</li>
+							<li class="fragment">eine Low-Code bis No-Code Umgebung entsteht.</li>
 						</ul>
-						<li class="fragment">Person mit Sachverstand über das Anwendungsszenario übernimmt auch die Rolle des Programmierers</li>
 					</ul>
 				</section>
 				<section>
-					<strong>Dies soll der Workflow-Planer mit integriertem Formular-Editor ermöglichen</strong>
+					<p><strong>Beobachtung:</strong></p>
+					<p></strong>Interaktion erfolgt durch <strong>Formulare</strong> & <strong>E-Mails</strong></p>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Editor zur Erstellung von Formularen</li>
+						<li class="fragment">Editor zur Erstellung von Workflows</li>
+						<li class="fragment">zentrale Abspeicherung von Formularen und Workflows</li>
+					</ul>
+					<aside class="notes">
+						- Formular-Editor zur Erstellung von Datenaufnahme
+						- zentrale Abspeicherung ermöglicht Kollaboration
+					</aside>
 				</section>
 			</section>
 			<section id="lösungsansatz">
 				<h3>Lösungsansatz</h3>
 				<section>
+					<h2>Ziel:</h2>
+					<strong>Person mit Sachverstand über das Anwendungsszenario kann die Rolle des Programmierers übernehmen.</strong>
+				</section>
+				<section style="text-align: left;">
+					<p>Zwei Nutzerklassen:</p>
 					<ul>
-						<li>Interaktion erfolgt durch <strong>Formulare</strong> und <strong>E-Mails</strong></li>
-						<li>Zwei Nutzerklassen: <strong>Workflow-Ersteller*innen</strong> und <strong>Formularausfüllende</strong></li>
-						
+						<li class="fragment"><strong>Workflow-Ersteller*innen</strong></li>
+						<li class="fragment"><strong>Formularausfüllende</strong></li>
 					</ul>
 				</section>
 				<section>
@@ -83,9 +106,8 @@
 			<section id="verwandteArbeiten">
 				<h3>Verwandte Arbeiten</h3>
 				<section>
-					<a target="_blank" rel="noopener noreferrer" href="https://github.com/Kinto/formbuilder">
-						<h4>Kinto Formbuilder</h4>
-					</a>
+					
+					<h4>Kinto Formbuilder<a target="_blank" rel="noopener noreferrer" href="https://github.com/Kinto/formbuilder"><sup>1</sup></a></h4>
 					<ul>
 						<li>Formulare lassen sich erstellen und hosten</li>
 						<li>ausgefüllte Formulare können abgerufen werden</li>
@@ -94,11 +116,12 @@
 					</ul>
 				</section>
 				<section>
-					<a target="_blank" rel="noopener noreferrer" href="https://formium.io/">
-						<h4>Formium</h4>
-					</a>
+					<h4>Formium<a target="_blank" rel="noopener noreferrer" href="https://formium.io/">
+							<sup>2</sup>
+						</a>
+					</h4>
 					<ul>
-						<li>Formular-Editor basierend auf <a target="_blank" rel="noopener noreferrer" href="https://formik.org/">FORMIK</a></li>
+						<li>Formular-Editor basierend auf FORMIK<a target="_blank" rel="noopener noreferrer" href="https://formik.org/"><sup>3</sup></a></li>
 						<li>eine Vielzahl an Möglichkeiten die Daten weiterzuverarbeiten</li>
 						<li>bietet die zu unserem Anwendungsfall passende Funktionalität</li>
 						<li><strong>kommerzielles Produkt und kein Open-Source</strong></li>
@@ -116,19 +139,19 @@
 						</ul>
 					</ul>
 					<aside class="notes">
-						-Wenn man die Forms als HTML abspeichert => schwierig in React einzubinden (Design und Action handling mit Data Bindings in JavaScript)
+						-Wenn man die Forms als HTML abspeichert => schwierig in React einzubinden, da hardcoded (Design und Action handling mit Data Bindings in JavaScript)
 					</aside>
 				</section>
 				<section>
 					<h5>Alternativen:</h5>
 						<ul>
-							<li class="fragment">FORMIK:</li>
+							<li class="fragment"><a target="_blank" rel="noopener noreferrer" href="https://formik.org/">FORMIK<sup>3</sup></a>:</li>
 							<ul>
 								<li class="fragment">Weniger Code</li>
 								<li class="fragment">Nutzereingaben sind leicht abrufbar</li>
 								<li class="fragment">immer noch ziemlich nah an HTML/JSX</li>
 							</ul>
-							<li class="fragment"><strong>JSONForms</strong></li>
+							<li class="fragment"><strong>JSONForms</strong><a target="_blank" rel="noopener noreferrer" href="https://jsonforms.io/"><sup>4</sup></a></li>
 						</ul>
 				</section>
 				<section>
@@ -241,6 +264,9 @@
 							}
 						  }
 					</code></pre>
+					<aside class="notes">
+						UMSCHALTEN nach links
+					</aside>
 				</section>
 				<section>
 					<img data-src="grafiken/FormularEditor.png" width="595" height="464">
@@ -256,7 +282,7 @@
 						<h3>Herausforderung:</h3>
 					<h4>Drag and Drop im Browser</h4>
 						<ul>
-						<li class="fragment">Ersten Formular-Editor Prototype mit <strong>ReactDnD</strong> umgesetzt</li>
+						<li class="fragment">Ersten Formular-Editor Prototype mit <strong>ReactDnD</strong><a target="_blank" rel="noopener noreferrer" href="https://react-dnd.github.io/react-dnd/about"><sup>5</sup></a> umgesetzt</li>
 						<ul>
 							<li class="fragment">Vereinfacht Zustandsänderungen bei Events</li>
 							<li class="fragment">Monitor-Connect Logik gewöhnungsbedürftig</li>
@@ -273,8 +299,8 @@
 				</section>
 				<section>
 					<ul>
-						<li class="fragment">rendert bei jeder kleinsten Mausbewegung neu</li>
-						<li class="fragment">sehr hohe CPU-Last</li>
+						<li class="fragment">rendert bei jeder kleinsten Mausbewegung neu<a target="_blank" rel="noopener noreferrer" href="https://github.com/react-dnd/react-dnd/issues/592"><sup>6</sup></a></li>
+						<li class="fragment">sehr hohe CPU-Last<a target="_blank" rel="noopener noreferrer" href="https://github.com/react-dnd/react-dnd/issues/2621"><sup>7</sup></a></li>
 						<li class="fragment"><strong>Deshalb HTML-5 Drag and Drop in React nutzen</strong></li>
 					</ul>
 				</section>
@@ -283,12 +309,6 @@
 				<h3>Darstellung der Workflows</h3>
 				<section>
 					<img data-src="grafiken/BeispielWorkflow.png" width="456" height="511">
-				</section>
-				<section>
-					<h3>Live-Demo Workflow-Editor</h3>
-				</section>
-				<section>
-					<iframe class="r-stretch" data-src="http://localhost:1234/workfloweditor" data-preload></iframe>
 				</section>
 				<section>
 					<ul>
@@ -309,17 +329,10 @@
 					</aside>
 				</section>
 				<section>
-					<h5>Transformation von GUI-Workflow zu Backend</h5>
-					<ul>
-						<li>Konvertierung client-seitig</li>
-						<ol>
-							<li>Grundstruktur für alle Bausteine erstellen</li>
-							<li>Baustein-spezifische Eisntellungen zuordnen und einfügen</li>
-							<li>Grundstruktur für die Verbindungslinien erstellen und Quell-Baustein eintragen</li>
-							<li>Im Ziel-Baustein der Verbindungslinien die restlichen Attribute setzen</li>
-
-						</ol>
-					</ul>
+					<h3>Live-Demo Workflow-Editor</h3>
+				</section>
+				<section>
+					<iframe class="r-stretch" data-src="http://localhost:1234/workfloweditor" data-preload></iframe>
 				</section>
 				<section>
 					<h5>Generierter Workflow in JSON</h5>
@@ -377,6 +390,19 @@
 					</pre>
 				</section>
 				<section>
+					<h5>Transformation von GUI-Workflow zu Backend</h5>
+					<ul>
+						<li>Konvertierung client-seitig</li>
+						<ol>
+							<li>Grundstruktur für alle Bausteine erstellen</li>
+							<li>Baustein-spezifische Eisntellungen zuordnen und einfügen</li>
+							<li>Grundstruktur für die Verbindungslinien erstellen und Quell-Baustein eintragen</li>
+							<li>Im Ziel-Baustein der Verbindungslinien die restlichen Attribute setzen</li>
+
+						</ol>
+					</ul>
+				</section>
+				<section>
 					<h5>Das erstellte JSON wird an das Backend gesendet und ausgeführt.</h5>
 				</section>
 			</section>
@@ -425,6 +451,18 @@
 				<section>
 					<h3><strong>Workflow-Planer <u>unterstützt</u> bei administrativen Aufgaben</strong></h3>
 				</section>
+			</section>
+			<section>
+				<h3>Referenzen</h3>
+				<ol>
+					<li>Kinto Form Builder: <a target="_blank" rel="noopener noreferrer" href="https://github.com/Kinto/formbuilder">Github</a></li>
+					<li>Formium Form Builder: <a target="_blank" rel="noopener noreferrer" href="https://formium.io/">formium.io</a></li>
+					<li>Formik Form Library: <a target="_blank" rel="noopener noreferrer" href="https://formik.org/">formik.org</a></li>
+					<li>JSONForms: <a target="_blank" rel="noopener noreferrer" href="https://jsonforms.io/">jsonforms.io</a></li>
+					<li>ReactDnD: <a target="_blank" rel="noopener noreferrer" href="https://react-dnd.github.io/react-dnd/about">Webseite</a></li>
+					<li>ReactDND: issue dragLayer: <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-dnd/react-dnd/issues/592">Github</a></li>
+					<li>ReactDND: issue CPU usage: <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-dnd/react-dnd/issues/2621">Github</a></li>
+				</ol>
 			</section>
 		</div>
 	</div>
