@@ -58,6 +58,9 @@
 				<section>
 					<p><strong>Beobachtung:</strong></p>
 					<p></strong>Interaktion erfolgt durch <strong>Formulare</strong> & <strong>E-Mails</strong></p>
+					<aside class="notes">
+						- Die beiden Hauptkommunikationskanäle in Verwaltungs und organisatorischen Zusammnehängen sind Formulare und E-Mails.
+					</aside>
 				</section>
 				<section>
 					<ul>
@@ -74,6 +77,11 @@
 			<section id="beispielWorkflow">
 				<h3>Beispiel-Workflow in BPMN</h3>
 				<img data-src="grafiken/BPMNPrüfungsamt.jpg">
+				<aside class="notes">
+					- Business Process Model and Notation, deutsch Geschäftsprozessmodell und -notation
+					- Können Workflows bzw. Arbeitsabläufe mit modelliert werden.
+					- Startevent zu Endevent durch Tasks
+				</aside>
 			</section>
 			<section id="lösungsansatz">
 				<h3>Lösungsansatz</h3>
@@ -96,6 +104,12 @@
 							<li class="fragment">grafischen <strong>Workflow-Editor</strong> mit Bausteinen und Datenflussverbindungen</li>
 						</ul>
 					</ul>
+					<aside class="notes">
+						- Welche Komponenten werden für Workflow-Erstellerinnen benötigt
+						- Ein Formulareditor, in dem ein Formular von Grund auf erstellt werden kann.
+						- Bausteine stellen grob gesehen einen Task wie in BPMN dar.
+						- Die Datenflussverbindungen sind vergleichbar mit den Message-Flows von BPMN.
+					</aside>
 				</section>
 				<section  style="text-align: left;">
 					<ul>
@@ -118,6 +132,10 @@
 						<li><strong>keine automatisierten Funktionen auf den Daten möglich</strong></li>
 						<li><strong>seit fünf Jahren keine Updates mehr</strong></li>
 					</ul>
+					<aside class="notes">
+						- statt automatisierter Funktionen, können die eingegebenen Daten einfach nur abgefurfen werden.
+						- fünf Jahre keine Updates imm Bereich der Webanwendungen gefährlich, da Sicherheitslücken nicht bearbeitet wurden.
+					</aside>
 				</section>
 				<section>
 					<h4>Formium<a target="_blank" rel="noopener noreferrer" href="https://formium.io/">
@@ -127,9 +145,12 @@
 					<ul>
 						<li>Formular-Editor basierend auf FORMIK<a target="_blank" rel="noopener noreferrer" href="https://formik.org/"><sup>3</sup></a></li>
 						<li>eine Vielzahl an Möglichkeiten die Daten weiterzuverarbeiten</li>
-						<li>bietet die zu unserem Anwendungsfall passende Funktionalität</li>
+						<li>bietet die zum Anwendungsfall dieser Arbeit passende Funktionalität</li>
 						<li><strong>kommerzielles Produkt und kein Open-Source</strong></li>
 					</ul>
+					<aside class="notes">
+						- da closed source, können keine Anpassungen für den Universitäts Anwendungsfall gemacht werden.
+					</aside>
 				</section>
 			</section>
 			<section id="repräsentationFormulare">
@@ -157,6 +178,9 @@
 							</ul>
 							<li class="fragment"><strong>JSONForms</strong><a target="_blank" rel="noopener noreferrer" href="https://jsonforms.io/"><sup>4</sup></a></li>
 						</ul>
+						<aside class="notes">
+							- Formik legt Augenmerk auf einfachen zugriff auf Daten aus den Formularen und Validierung der Eingaben.
+						</aside>
 				</section>
 				<section>
 					<h4>JSONForms</h4>
@@ -171,6 +195,7 @@
 					</ul>
 					<aside class="notes">
 						- Da die selbe Repräsentation im Editor und Formular genutzt wird, sind keine weiteren Konvertierungsschritte erforderlich.
+						- DDaten können einfach per Onchange event ausgelesen werden. Unabhängig von den genauen Feldern des Formulars.
 						- Es lassen sich mit Custom Renderer auch Sterne oder so darstellen, die man dann wie ein Rating benutzen kann
 					</aside>
 				</section>
@@ -269,7 +294,7 @@
 						  }
 					</code></pre>
 					<aside class="notes">
-						UMSCHALTEN nach links
+						UMSCHALTEN nach rechts
 					</aside>
 				</section>
 				<section>
@@ -290,18 +315,20 @@
 						<ul>
 							<li class="fragment">Vereinfacht Zustandsänderungen bei Events</li>
 							<li class="fragment">Monitor-Connect Logik gewöhnungsbedürftig</li>
-							<li class="fragment"><strong>Probleme mit Hooks und zu häufigem rendern</strong></li>
+							<li class="fragment"><strong>Probleme mit Hooks und zu häufigem Rendering</strong></li>
 						</ul>
 					</ul>
 					<aside class="notes">
 						- React DND ist eine weitverbreitete Bibliothek für Drag and Drop
 						- Zustandsänderungen sind highlighting beim draggen oder andere Veränderungen der Oberfläche
+						- Hooks sind die Alternative bzw. Nachfolger von Klassen im React Framework. Komponenten werden in kleiner Funktionseinheiten unterteilt.
 					</aside>
 				</section>
 				<section>
 					<iframe class="r-stretch" data-src="https://react-dnd.github.io/react-dnd/examples/sortable/simple" data-preload></iframe>
 				</section>
 				<section>
+					<h4>Nachteile</h4>
 					<ul>
 						<li class="fragment">rendert bei jeder kleinsten Mausbewegung neu<a target="_blank" rel="noopener noreferrer" href="https://github.com/react-dnd/react-dnd/issues/592"><sup>6</sup></a></li>
 						<li class="fragment">sehr hohe CPU-Last<a target="_blank" rel="noopener noreferrer" href="https://github.com/react-dnd/react-dnd/issues/2621"><sup>7</sup></a></li>
@@ -337,6 +364,21 @@
 				</section>
 				<section>
 					<iframe class="r-stretch" data-src="http://localhost:1234/workfloweditor" data-preload></iframe>
+					<aside class="notes">
+						Was passiert jetzt beim absenden des Workflows?
+					</aside>
+				</section>
+				<section>
+					<h5>Transformation von GUI-Workflow zu Backend</h5>
+					<ul>
+						<li>Konvertierung client-seitig</li>
+						<ol>
+							<li>Grundstruktur für alle Bausteine erstellen</li>
+							<li>Baustein-spezifische Einstellungen zuordnen und einfügen</li>
+							<li>Grundstruktur für die Verbindungslinien erstellen und Quell-Baustein eintragen</li>
+							<li>Im Ziel-Baustein der Verbindungslinien die restlichen Attribute setzen</li>
+						</ol>
+					</ul>
 				</section>
 				<section>
 					<h5>Generierter Workflow in JSON</h5>
@@ -394,19 +436,6 @@
 					</pre>
 				</section>
 				<section>
-					<h5>Transformation von GUI-Workflow zu Backend</h5>
-					<ul>
-						<li>Konvertierung client-seitig</li>
-						<ol>
-							<li>Grundstruktur für alle Bausteine erstellen</li>
-							<li>Baustein-spezifische Eisntellungen zuordnen und einfügen</li>
-							<li>Grundstruktur für die Verbindungslinien erstellen und Quell-Baustein eintragen</li>
-							<li>Im Ziel-Baustein der Verbindungslinien die restlichen Attribute setzen</li>
-
-						</ol>
-					</ul>
-				</section>
-				<section>
 					<h5>Das erstellte JSON wird an das Backend gesendet und ausgeführt.</h5>
 				</section>
 			</section>
@@ -421,7 +450,7 @@
 						<li class="fragment">Mit wenig Aufwand andere Authentifizierungsprovider einbinden</li>
 					</ul>
 					<aside class="notes">
-						- Einziger Speicherort, da Doppelspeicheung vermieden werden soll
+						- Ich zeige euch eine kleine Übersicht, wo die Formularabspeicherung zusammen mit der Authentifizierung gezeigt werden.
 					</aside>
 				</section>
 				<section>
@@ -433,9 +462,18 @@
 							</ul>
 						<li class="fragment">JWT und Stud.IP-User im Session-Storage des Browsers</li>
 					</ul>
+					<aside class="notes">
+						Json Web Tokens sind gehashte Anmeldeinformationen. Da drin steht unteranderem ein Ablaufdatum des Keys.
+					</aside>
 				</section>
 				<section>
 					<img data-src="grafiken/DatenflussAuthentifizierungArchitektur.png">
+					<aside class="notes">
+						-Ich gehe jetzt mal grob drüber: Workflow-Planer.Webanwenudng ist der Teil der in den Live-Demos gezeigt wurde.
+						- Login geht an Workflow-Planer Backend und falls es die erste Anmeldung ist am Workflow-planer.
+						- Die Formulare und Workflows werden als ID abgerufen.
+						- Die zweite Authentifizierung am Stud.IP Backend erfolgt um Namen, Nutzerbild, usw. abzurufen.
+					</aside>
 				</section>
 			</section>
 			<section id="fazit">
@@ -443,13 +481,13 @@
 				<section>
 					<ul>
 						<li class="fragment">Abfrage von Daten durch Formulare zugänglicher gemacht</li>
-						<li class="fragment">Workflows mit Ausfüll-Erinnerungen und Datenfiltern gut umsetzbar</li>
+						<li class="fragment">Workflows mit Datenfiltern und ggf. Python-Datenverarbeitungsfunktionen gut umsetzbar</li>
 						<li class="fragment">Senden von eventbasierten Benachrichtigungen (zu) komplex für Workflow-Ersteller und für Programmierer</li>
 					</ul>
 					<aside class="notes">
 						Für eventbasierte Benachrichtigungen oder andere Events wir dem Workflow-Ersteller Programmiererfahrung abverlangt.
 						Und eine Wissen über die Datenstrukturen des Workflow-Generators
-						Ein kompletter Workflow kann bis jetzt nicht von dem System automatisiert werden.
+						Ein kompletter Workflow kann bis jetzt nicht von dem System automatisiert werden. Es wird immernoch menschlliches eingreigfen benötigt.
 					</aside>
 				</section>
 				<section>
@@ -486,6 +524,7 @@
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom]
 		});
+		Reveal.configure({ pdfSeparateFragments: false });
 	</script>
 </body>
 
